@@ -1,0 +1,59 @@
+@font-face {
+  font-family: Frutiger;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-55Roman.woff2)
+      format('woff2'),
+    url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-55Roman.woff)
+      format('woff');
+}
+
+@font-face {
+  font-family: Frutiger;
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-65Bold.woff2)
+      format('woff2'),
+    url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-65Bold.woff)
+      format('woff');
+}
+
+@font-face {
+  font-family: Frutiger;
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-45Light.woff2)
+      format('woff2'),
+    url(https://meine.postbank.de/bundles/@pbs/patternlib_pb/lib/runtime/assets/fonts/Frutiger/FrutigerLTW02-45Light.woff)
+      format('woff');
+}
+
+@media (min-width: 768px), print {
+  .l3iba {
+    margin-right: 0;
+    margin-left: calc(-8.33333% + 15px);
+    padding-left: calc(8.33333% - 30px);
+    z-index: 101;
+  }
+}
+
+* {
+  font-family: Frutiger, sans-serif;
+}
+
+hr {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+  height: 0.0625rem;
+  margin: 0.4375rem 0;
+  padding: 0;
+  border: 0;
+  border-top: 0.0625rem solid #ced6e4;
+}

